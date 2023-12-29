@@ -3,7 +3,7 @@ import Botao from '../Botao';
 import Inputs from '../CampoTexto/CampoTexto';
 import Select from '../Select';
 import './Formulario.css'
-const Formulario=()=>{
+const Formulario=(props)=>{
     const times = ['Barcelona', 'Real Madrid', 'Milan', 'Inter de Milão' ,'Liverpool', 'Manchester City', 'Bayern Munich', 'Borussia Dortmund']
     const posicoes = ['Atacante','Ponta Esquerda', 'Ponta Direita' ,'Meio Campista', 'Volante', 'Lateral Esquerdo', 'Lateral Direito', 'Zagueiro', 'Goleiro']
 
@@ -16,7 +16,7 @@ const Formulario=()=>{
 
     const aoSalvar = (evento)=>{
         evento.preventDefault()
-        console.log('form enviado', nome, posicao, imagem, time)
+        props.novoJogador({nome, posicao, imagem, time})
     }
 
     return(
