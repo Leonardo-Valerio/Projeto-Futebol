@@ -60,8 +60,8 @@ function App() {
     
     <div className="App">
       <Banner/>
-      <Formulario novoJogador={jogador=>novoJogador(jogador)}/>
-      {times.map(time=><Times key ={time.nome}nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria}/>)}
+      <Formulario novoJogador={jogador=>novoJogador(jogador)} nomeDosTimes={times.map(time=>time.nome)}/>
+      {times.map(time=><Times key ={time.nome}nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria} jogadores ={jogador.filter(jogador=> jogador.time === time.nome)}/>)}
     </div>
   );
 }

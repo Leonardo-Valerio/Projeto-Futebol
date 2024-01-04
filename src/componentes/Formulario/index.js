@@ -4,7 +4,7 @@ import Inputs from '../CampoTexto/CampoTexto';
 import Select from '../Select';
 import './Formulario.css'
 const Formulario=(props)=>{
-    const times = ['Barcelona', 'Real Madrid', 'Milan', 'Inter de Milão' ,'Liverpool', 'Manchester City', 'Bayern Munich', 'Borussia Dortmund']
+
     const posicoes = ['Atacante','Ponta Esquerda', 'Ponta Direita' ,'Meio Campista', 'Volante', 'Lateral Esquerdo', 'Lateral Direito', 'Zagueiro', 'Goleiro']
 
     const [nome,setNome]=useState('')
@@ -26,7 +26,7 @@ const Formulario=(props)=>{
                 <Inputs obrigatorio={true} label = 'Nome' placeholder='Digite seu nome' valor ={nome} setValor={setNome}/>
                 <Select obrigatorio={true} label='Posição' itens = {posicoes} valor ={posicao} setValor={setPosicao}/>
                 <Inputs label = 'Imagem' placeholder='Informe o endereço da imagem' valor = {imagem} setValor={setImagem}/>
-                <Select obrigatorio={true} label='Time' itens = {times} valor={time} setValor={setTime}/>
+                <Select obrigatorio={true} label='Time' itens = {props.nomeDosTimes} valor={time} setValor={setTime}/>
                 <Botao>Criar Card</Botao>
             </form>
         </section>
