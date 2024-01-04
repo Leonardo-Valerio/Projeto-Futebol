@@ -21,7 +21,7 @@ function App() {
     },
     {
       'nome': 'Real Madrid',
-      'corPrimaria':'#FFFFFF',
+      'corPrimaria':'#f0f0f0',
       'corSecundaria': '#004996'
     },
     {
