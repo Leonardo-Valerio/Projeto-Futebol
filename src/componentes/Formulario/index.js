@@ -17,6 +17,10 @@ const Formulario=(props)=>{
     const aoSalvar = (evento)=>{
         evento.preventDefault()
         props.novoJogador({nome, posicao, imagem, time})
+        setNome('')
+        setPosicao('')
+        setTime('')
+        setImagem('')
     }
 
     return(
