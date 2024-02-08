@@ -11,6 +11,9 @@ const Formulario=(props)=>{
     const [posicao,setPosicao] = useState('')
     const [imagem,setImagem]=useState('')
     const [time,setTime] = useState('')
+    const [corPrimaria, setCorPrimaria] = useState('#000000')
+    const [corSecundaria, setCorSecundaria] = useState('#000000')
+    const [nomeTime,setNomeTime]=useState('')
 
 
 
@@ -23,6 +26,15 @@ const Formulario=(props)=>{
         setImagem('')
     }
 
+    const aoSalvarTime = (evento)=>{
+        evento.preventDefault()
+        props.adicionarTime({nomeTime, corPrimaria, corSecundaria})
+        setNomeTime('')
+        setCorPrimaria('')
+        setCorSecundaria('')
+    }
+    
+
     return(
         <section className='formulario'>
             <form onSubmit={aoSalvar}>
@@ -32,6 +44,13 @@ const Formulario=(props)=>{
                 <Inputs label = 'Imagem' placeholder='Informe o endereço da imagem' valor = {imagem} setValor={setImagem}/>
                 <Select obrigatorio={true} label='Time' itens = {props.nomeDosTimes} valor={time} setValor={setTime}/>
                 <Botao>Criar Card</Botao>
+            </form>
+            <form onSubmit={aoSalvarTime}>
+            <h2>Preencha os dados para criar um time</h2>
+                <Inputs obrigatorio={true} tipo = 'text' label = 'Nome' placeholder='Digite seu nome' valor ={nomeTime} setValor={setNomeTime}/>
+                <Inputs tipo= 'color' label = 'Cor Primária' placeholder='Informe a cor primária' valor = {corPrimaria} setValor={setCorPrimaria}/>
+                <Inputs tipo = 'color' label = 'Cor Secundária' placeholder='Informe a cor secundária' valor = {corSecundaria} setValor={setCorSecundaria}/>
+                <Botao>Criar Time</Botao>
             </form>
         </section>
     )

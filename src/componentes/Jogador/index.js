@@ -1,7 +1,9 @@
 import './jogador.css'
-const Jogador =({jogadores, corSecundaria})=>{
+import { TiDeleteOutline } from "react-icons/ti";
+const Jogador =({jogadores, corSecundaria, aoDeletarJogador})=>{
     return(
         <div className="jogador">
+            <TiDeleteOutline size={25} onClick={()=>aoDeletarJogador(jogadores.nome)}/>
             <div className="cabecalho" style={{backgroundColor: corSecundaria}}>
                 <img src={jogadores.imagem} alt={jogadores.nome}></img>
             </div>
