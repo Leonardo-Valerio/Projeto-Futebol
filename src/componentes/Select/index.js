@@ -6,7 +6,7 @@ const Select = (props)=>{
                 <label>{props.label}</label>
                 <select required={props.obrigatorio} onChange={evento=>(props.setValor(evento.target.value))} value={props.valor}>
                     <option value={''}></option>
-                    {props.itens.map(item=> <option key={item}>{item}</option>)}
+                    {props.itens.map((item,index)=> <option key={index}>{item}</option>)}
                 </select>
             </div>
         </>

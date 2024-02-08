@@ -28,7 +28,7 @@ const Formulario=(props)=>{
 
     const aoSalvarTime = (evento)=>{
         evento.preventDefault()
-        props.adicionarTime({nomeTime, corPrimaria, corSecundaria})
+        props.adicionarTime({'nome':nomeTime, 'corPrimaria':corPrimaria, 'corSecundaria':corSecundaria})
         setNomeTime('')
         setCorPrimaria('')
         setCorSecundaria('')

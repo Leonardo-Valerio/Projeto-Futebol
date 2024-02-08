@@ -176,8 +176,8 @@ function App() {
     <div className="App">
       <Banner/>
       <Formulario adicionarTime = {times=>novoTime(times)} novoJogador={jogador=>novoJogador(jogador)} nomeDosTimes={times.map(time=>time.nome)}/>
-      {times.map(time=><Times
-        key ={time.nome}nome={time.nome}
+      {times.map((time,index)=><Times
+        key ={index}nome={time.nome}
         corPrimaria={time.corPrimaria}
         corSecundaria={time.corSecundaria}
         jogadores ={jogador.filter(jogador=> jogador.time === time.nome)}
