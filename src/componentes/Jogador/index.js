@@ -9,7 +9,7 @@ const Jogador =({jogador, corSecundaria, aoDeletarJogador, aoFavoritarJogador})=
     }
     return(
         <div className="jogador">
-            <TiDeleteOutline size={25} color={corSecundaria} onClick={()=>aoDeletarJogador(jogador.nome)}/>
+            <TiDeleteOutline size={25} color={corSecundaria} onClick={()=>aoDeletarJogador(jogador.id)}/>
             <div className="cabecalho" style={{backgroundColor: corSecundaria}}>
                 <img src={jogador.imagem} alt={jogador.nome}></img>
             </div>

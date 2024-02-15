@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Banner from './componentes/Banner/Banner';
 import Formulario from './componentes/Formulario';
 import Times from './componentes/Time';
+import hexToRgba from 'hex-to-rgba';
 const useCarregarDados =(caminho,set)=>{
   useEffect(
     ()=>{
@@ -29,25 +30,66 @@ useCarregarDados('teams',setTime)
 
   
   const novoJogador=(novoJogador)=>{
-    console.log(jogador)
-    setJogador([...jogador, novoJogador])
+    fetch('http://localhost:8080/players',{
+        method:"POST",
+        headers:{ 
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify(novoJogador)
+    })
+    .then(resposta=>resposta.json)
+    .then(data=> {console.log(data);
+       setJogador([...jogador, data])}
+    )
   }
 
   const novoTime = (newTime)=>{
-    console.log(times)
-    setTime([...times,newTime])
+    fetch('http://localhost:8080/teams',{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(newTime)
+    })
+    .then(resposta=>resposta.json())
+    .then(data => setTime([...times,data]))
+    
     
   }
 
-  const aoDeletarJogador=(nomeJogador)=>{
-    let index = jogador.findIndex(jogador=> jogador.nome === nomeJogador)
-    setJogador(jogador.filter((jogador,i)=> i!== index))
+  const aoDeletarJogador=(id)=>{
+    fetch(`http://localhost:8080/players/${id}`,{
+      method:"DELETE"
+    })
+    .then(resposta=>resposta.json())
+    .then(data=>{
+      setJogador((prevJogadores)=>
+      prevJogadores.filter((player)=>player.id!== id))
+    })
     
   }
-  const favoritarJogador = (id)=>{
-        jogador[id].favorito = !jogador[id].favorito
-        setJogador([...jogador])
-  }
+  const favoritarJogador = (id) => {
+    
+    jogador[id].favorito = !jogador[id].favorito;
+    
+    fetch(`http://localhost:8080/players/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify( jogador[id] ),
+    })
+      .then((resposta) => resposta.json())
+      .then((data) => {
+        
+        setJogador((prevJogadores) => {
+          prevJogadores[id] = data;
+          return [...prevJogadores]
+        }
+        );
+      })
+      .catch((error) => console.error('Error favoriting player:', error));
+  };
   
   return (
     
@@ -56,8 +98,8 @@ useCarregarDados('teams',setTime)
       <Formulario adicionarTime = {times=>novoTime(times)} novoJogador={jogador=>novoJogador(jogador)} nomeDosTimes={times.map(time=>time.nome)} jogadores = {jogador}/>
       {times.map((time,index)=><Times
         key ={index}nome={time.nome}
-        corPrimaria={time.corPrimaria}
-        corSecundaria={time.corSecundaria}
+        corPrimaria={hexToRgba(time.corPrimaria,0.7)}
+        corSecundaria={hexToRgba(time.corSecundaria,0.9)}
         jogadores ={jogador.filter(jogador=> jogador.time === time.nome)}
         aoDeletar={aoDeletarJogador}
         aoFavoritar = {favoritarJogador}
