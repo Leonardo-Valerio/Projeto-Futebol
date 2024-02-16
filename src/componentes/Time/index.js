@@ -1,6 +1,7 @@
 
 import Jogador from '../Jogador'
 import './time.css'
+import { TiDeleteOutline } from "react-icons/ti";
 
 const Times = (props)=>{
  
@@ -8,6 +9,7 @@ const Times = (props)=>{
 
         props.jogadores.length > 0 && <section className="time" style={{backgroundColor: props.corPrimaria
     }}>
+            <TiDeleteOutline size={30} color={props.corSecundaria} onClick={()=>props.aoDeletarTime(props.times.id)}></TiDeleteOutline>
             <h3 style={{borderColor: props.corSecundaria}}>{props.nome}</h3>
             <div className='jogadores'>
                 {props.jogadores.map(jogador=> 
@@ -16,7 +18,9 @@ const Times = (props)=>{
                         jogador={jogador} 
                         corSecundaria ={props.corSecundaria} 
                         aoDeletarJogador={props.aoDeletar}
-                        aoFavoritarJogador = {props.aoFavoritar}/>)}
+                        aoFavoritarJogador = {props.aoFavoritar}
+                        />)}
+                        
             </div>
         </section>
     )

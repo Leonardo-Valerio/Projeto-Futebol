@@ -19,10 +19,9 @@ const Formulario=(props)=>{
 
     const aoSalvar = (evento)=>{
         evento.preventDefault()
-        let id = props.jogadores.length 
-        console.log(id)
+        
         let favorito = false
-        props.novoJogador({id, nome, posicao, imagem, time, favorito})
+        props.novoJogador({ nome, posicao, imagem, time, favorito})
         setNome('')
         setPosicao('')
         setTime('')
