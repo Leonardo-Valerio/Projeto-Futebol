@@ -34,12 +34,18 @@ Este projeto é um site de gerenciamento de equipes de futebol, desenvolvido uti
 ## Link do site no Vercel
 https://projeto-futebol-one.vercel.app/
 
+## Vídeo do site rodando
+https://www.youtube.com/watch?v=0HE7NcoUDiE
+
 ## Fotos do Site
-![image](https://github.com/Leonardo-Valerio/Projeto-Futebol/assets/128194207/84170814-2dfe-4605-84fa-1a83463579a9)
-![image](https://github.com/Leonardo-Valerio/Projeto-Futebol/assets/128194207/c0d7e0ce-6825-4a03-9c04-43a01a079ba5)
-![image](https://github.com/Leonardo-Valerio/Projeto-Futebol/assets/128194207/0eb87667-7f80-4211-8067-be46fea41a94)
-![image](https://github.com/Leonardo-Valerio/Projeto-Futebol/assets/128194207/b78daf6b-7c85-4525-9fa5-51df0429253b)
-![image](https://github.com/Leonardo-Valerio/Projeto-Futebol/assets/128194207/77f01f46-55d6-4fd4-8d07-ed01d0ebdba8)
+![image](https://github.com/Leonardo-Valerio/Projeto-Futebol/assets/128194207/b26a73fb-8f8d-4543-b2c2-8019e8c3116a)
+![image](https://github.com/Leonardo-Valerio/Projeto-Futebol/assets/128194207/43915de0-68b1-427d-b988-6f13336fb7cc)
+![image](https://github.com/Leonardo-Valerio/Projeto-Futebol/assets/128194207/1cb4def9-d739-4bab-9e5c-8f496fa706bb)
+![image](https://github.com/Leonardo-Valerio/Projeto-Futebol/assets/128194207/c0fb90ca-51c8-4059-ad90-a24af6f78b66)
+![image](https://github.com/Leonardo-Valerio/Projeto-Futebol/assets/128194207/0443ef3e-d157-4c38-8dbc-2ab1727428b7)
+![image](https://github.com/Leonardo-Valerio/Projeto-Futebol/assets/128194207/2a18fdf7-2b66-4d04-bf58-6e4f8276948c)
+
+
 
 
 
