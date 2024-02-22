@@ -72,21 +72,21 @@ useCarregarDados('teams',setTime)
     
   }
   const favoritarJogador = (id) => {
+    const jogadorId = jogador.findIndex((x)=>x.id === id)
     
-    jogador[id].favorito = !jogador[id].favorito;
+    jogador[jogadorId].favorito = !jogador[jogadorId].favorito;
     
     fetch(`http://localhost:8080/players/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify( jogador[id] ),
+      body: JSON.stringify( jogador[jogadorId] ),
     })
       .then((resposta) => resposta.json())
       .then((data) => {
-        
         setJogador((prevJogadores) => {
-          prevJogadores[id] = data;
+          prevJogadores[jogadorId] = data;
           return [...prevJogadores]
         }
         );
@@ -96,6 +96,7 @@ useCarregarDados('teams',setTime)
   
   
   const aoDeletarTime = (id)=>{
+    
     fetch(`http://localhost:8080/teams/${id}`,{
       method:"DELETE"
     })
@@ -113,6 +114,7 @@ useCarregarDados('teams',setTime)
     <div className="App">
       <Banner/>
       <Formulario adicionarTime = {times=>novoTime(times)} novoJogador={jogador=>novoJogador(jogador)} nomeDosTimes={times.map(time=>time.nome)} jogadores = {jogador}/>
+      
       {times.map((time,index)=><Times
         key ={index}
         nome={time.nome}
